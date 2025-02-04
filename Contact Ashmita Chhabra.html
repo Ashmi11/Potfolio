@@ -15,8 +15,6 @@
 
 
 <body>
-
-
   <header class="page-header">
     <img src="img/logo.jpg" alt="logo" class="page-header__item">
     <nav class="main-navigation page-header__item">
@@ -31,7 +29,7 @@
           <a href="work.html" role="menuitem" class="navigation-list__item navigation-list__item--active">Work</a>
         </li>
         <li role="presentation">
-          <a href="Contact Ashmita Chhabra.html" role="menuitem" class="navigation-list__item">Contact</a>
+          <a href="Contact Ashmita Chhabra.html" role="menuitem" class="navigation-list__item">Contact </a>
         </li>
       </ul>
     </nav>
@@ -43,18 +41,40 @@
 
   <main>
 
-    <div class="profile">
+    <div>
 
-      <img src="img/porrfoli pp.jpg" class="profile__portrait" alt="A picture of me">
-      <h1>Hello World!</h1>
-      <p>My name is Ashmita Chhabra. I am a <span>web</span> developer</p>
-      <a href="https://github.com/Ashmi11">Check out some of my projects</a>
-
+      Address: Rauschstrasse 4<br>
+      13509 Berlin<br>
+      Germany<br>
+      <br>
+      Phone number:<a href="tel:+4915215142433"
+        aria-label="Call me at plus four nine one five two one five one four two four three three"> +4915215142433 </a>
+      <br>
+      Email: <a href="mailto:ashmita.c@misb.ac.th"> ashmita.c@misb.ac.th</a><br>
+      <br>
+      <a href="mailto:ashmita.c@misb.ac.th"> Contact me</a> <!--This is called a call to action (CTA)-why use the same link twice but with 
+                                                                          different text? want your users to be able to 
+                                                                          contact you with only a single button click ,however, 
+                                                                          you also want to provide your email address in writing so
+                                                                          they can copy-paste it for later-->
     </div>
 
+    <form action="" method="post" id="contact-form">
+      <label class="standard-label" for="contact-email">Email: </label>
+      <input type="email" id="contact-email" required>
+
+      <label class="standard-label" for="contact-number">Telephone: </label>
+      <input type="tel" id="contact-number">
+
+      <label class="standard-label" for="contact-text">Message: </label>
+      <textarea id="contact-text" required maxlength="240"
+        placeholder="Your message should not exceed 240 characters"></textarea>
+      <input type="submit" class="button" value="Send message">
+    </form>
 
 
   </main>
+
 
 
   <footer class="page-footer">
@@ -74,10 +94,7 @@
     </div>
 
   </footer>
-
-
   <script src="js/tota11y.min.js"></script>
-
 
 </body>
 
