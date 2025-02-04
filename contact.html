@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Ashmita Chhabra-Portfolio</title>
+  <link rel="shortcut icon" href="./img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.production.css">
+</head>
+
+
+<body>
+  <header class="page-header">
+    <img src="img/logo.jpg" alt="logo" class="page-header__item">
+    <nav class="main-navigation page-header__item">
+      <ul role="menubar " class="navigation-list">
+        <li role="presentation">
+          <a href="index.html" role="menuitem" class="navigation-list__item navigation-list__item--active">Home</a>
+        </li>
+        <li role="presentation">
+          <a href="about.html" role="menuitem" class="navigation-list__item">About me</a>
+        </li>
+        <li role="presentation">
+          <a href="work.html" role="menuitem" class="navigation-list__item navigation-list__item--active">Work</a>
+        </li>
+        <li role="presentation">
+          <a href="contact.html" role="menuitem" class="navigation-list__item">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+
+
+  </header>
+
+
+  <main>
+
+    <div>
+
+      Address: Rauschstrasse 4<br>
+      13509 Berlin<br>
+      Germany<br>
+      <br>
+      Phone number:<a href="tel:+4915215142433"
+        aria-label="Call me at plus four nine one five two one five one four two four three three"> +4915215142433 </a>
+      <br>
+      Email: <a href="mailto:ashmita.c@misb.ac.th"> ashmita.c@misb.ac.th</a><br>
+      <br>
+      <a href="mailto:ashmita.c@misb.ac.th"> Contact me</a> <!--This is called a call to action (CTA)-why use the same link twice but with 
+                                                                          different text? want your users to be able to 
+                                                                          contact you with only a single button click ,however, 
+                                                                          you also want to provide your email address in writing so
+                                                                          they can copy-paste it for later-->
+    </div>
+
+    <form action="" method="post" id="contact-form">
+      <label class="standard-label" for="contact-email">Email: </label>
+      <input type="email" id="contact-email" required>
+
+      <label class="standard-label" for="contact-number">Telephone: </label>
+      <input type="tel" id="contact-number">
+
+      <label class="standard-label" for="contact-text">Message: </label>
+      <textarea id="contact-text" required maxlength="240"
+        placeholder="Your message should not exceed 240 characters"></textarea>
+      <input type="submit" class="button" value="Send message">
+    </form>
+
+
+  </main>
+
+
+
+  <footer class="page-footer">
+
+    <p>Find me on</p>
+    <div class="social-media">
+      <a href="https://github.com/Ashmi11">
+        <!-- The image when clicked takes user directly to the webpage referenced  by the link-->
+        <img src="img/github_icon.svg" alt="github">
+      </a>
+
+      <a href="https://www.linkedin.com/in/ashmita-chhabra-11mp/">
+        <img src="img/linkedin_icon.svg" alt="linkedin">
+      </a>
+
+
+    </div>
+
+  </footer>
+  <script src="js/tota11y.min.js"></script>
+
+</body>
+
+</html>
