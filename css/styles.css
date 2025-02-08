@@ -226,16 +226,35 @@ original media queries. Then, you only need to create additional media queries f
     grid-row: auto / auto;
   }
 
-  h1 {
+  h3 {
     font-size: 22px;
   }
+
+  .profile{
+    /*adjust text position and spacing*/
+
+    padding: 5px;
+    word-spacing: 3px; 
+    text-align: center;
+
+    
+    
+ 
+ }
+
+ .profile__portrait{
+    /*overwrite the apllied float:left effect from above*/
+   float: none;
+
+   /*overwrite the 250px width with a 100% width*/
+   width: 100%;
+ }
+
+
+
+
 }
 
-@media all and (max-width: 500px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 @media all and (min-width: 500px) and (max-width: 750px) {
   .grid {
@@ -253,7 +272,7 @@ original media queries. Then, you only need to create additional media queries f
     grid-row: auto / auto;
   }
 
-  h1 {
+  h3 {
     font-size: 22px;
   }
 }
@@ -292,16 +311,81 @@ original media queries. Then, you only need to create additional media queries f
   opacity: 0.8;
 }
 
+.about_info{
+    
+  text-align: center;
+
+}
+
 .about_pic {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   /* Centers horizontally */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   /* Centers vertically */
-  height: 100vh;
-  /* Full viewport height */
-  transform: scale(0.5);
+  
+ 
+}
 
+
+.about_details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px;
+  padding: 50px;
+  
+}
+
+
+@media all and (max-width: 500px) {
+  .about_pic{
+      display: block;
+  }
+  .about_details {
+      -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+      
+      grid-column: auto / auto;
+      grid-row: auto / auto;
+      justify-content: center;
+  }
+}
+
+
+
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .about_pic{
+      display: block;
+  }
+  
+  .about_details{
+      -ms-grid-columns: 1fr 10px 1fr;
+      grid-template-columns: 1fr 1fr;
+      justify-content: center;
+  }
+}
+
+@media all and (max-width: 750px) {
+
+  .about_pic{
+      display: block;
+  }
+  .about_details {
+      
+      grid-column: auto / auto;
+      grid-row: auto / auto;
+      justify-content: center;
+  }
+
+
+
+ 
 }
 
 
