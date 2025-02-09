@@ -345,9 +345,9 @@ the width of the item itself changing to accommodate the padding and border*/
     -ms-flex-align: center;
     align-items: center;
     /* Centers vertically */
-    position: relative; /* Fixes table overlay issue */
-    z-index: 1; /* Ensure image appears behind table */
-    max-width: 100%;
+    align-items: center;
+    width: 100%;
+    /* Ensures it takes full width */
     
    
   }
@@ -355,6 +355,9 @@ the width of the item itself changing to accommodate the padding and border*/
   .about_pic img{
     max-width:100% ;
     height: auto;
+    display: block;
+    margin: auto;
+    /* Fix for IE alignment */
   }
   
   
@@ -365,10 +368,7 @@ the width of the item itself changing to accommodate the padding and border*/
     grid-template-columns: 1fr 2fr;
     grid-gap: 20px;
     padding: 50px;
-    /* Fix for Internet Explorer Grid Issues */
-    position: relative;
-    z-index: 2;
-    
+   
   }
   
   
@@ -573,6 +573,9 @@ the width of the item itself changing to accommodate the padding and border*/
   table {
     width: 100%;
     /* Full width */
+    max-width: 100%;
+    display: block;
+    /* Ensures proper rendering */
     border-collapse: collapse;
     /* Removes extra space between borders */
     margin: 20px 0;
@@ -580,9 +583,6 @@ the width of the item itself changing to accommodate the padding and border*/
     font-size: 18px;
     text-align: left;
 
-    /* Fix Table Issues in IE */
-    z-index: 3;
-    position: relative;
   }
   
   caption {
