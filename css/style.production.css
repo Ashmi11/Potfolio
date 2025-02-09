@@ -373,6 +373,7 @@ the width of the item itself changing to accommodate the padding and border*/
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    flex-wrap: wrap;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -381,13 +382,16 @@ the width of the item itself changing to accommodate the padding and border*/
     -ms-flex-align: center;
     align-items: center;
     max-width: 50%; /* Ensures proper width */
+    flex: 1;
+    min-width: 300px; /* Prevents the image from being too small */
     
    
   }
 
   .about_pic img{
     
-    max-width:100% ;
+    width: 100%;
+    max-width: 400px; /* Ensures a good size */
     height: auto;
  
   }
@@ -609,12 +613,13 @@ the width of the item itself changing to accommodate the padding and border*/
     /* Standard CSS for modern browsers */
     grid-column: 2;
     grid-row: 1;
+    flex: 2;
+    width: 100%;
+    min-width: 300px;
+    max-width: 50%;
     
     width: 100%;
-    /* Full width */
-    max-width: 100%;
-    display: block;
-    /* Ensures proper rendering */
+
     border-collapse: collapse;
     /* Removes extra space between borders */
     margin: 20px 0;
