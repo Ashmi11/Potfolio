@@ -609,7 +609,7 @@ the width of the item itself changing to accommodate the padding and border*/
     /* Standard CSS for modern browsers */
     grid-column: 2;
     grid-row: 1;
-    float: right;
+    
     width: 100%;
     /* Full width */
     max-width: 100%;
