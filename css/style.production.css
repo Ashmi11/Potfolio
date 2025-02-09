@@ -404,7 +404,7 @@ the width of the item itself changing to accommodate the padding and border*/
     grid-template-columns: 1fr 2fr;
     grid-gap: 50px;
     padding: 50px;
-    align-items: center;
+    
    
   }
   
