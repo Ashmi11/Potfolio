@@ -6,6 +6,14 @@
 */
 
 /* 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/* 
 Colours  to use later
 Text Colour primary (Dark Salate Gray): #2F4F4F
 secondary colour (saddlebrown): #8B4513
@@ -24,657 +32,626 @@ the width of the item itself changing to accommodate the padding and border*/
 
 
 * {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #FFFAFA;
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    /* Sets the font size to 16px */
-    line-height: 1.6;
-    /* Sets the line-height to 1.6 */
-    color: #2F4F4F;
-  
-    display: -webkit-box;
-  
-    display: -ms-flexbox;
-  
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    min-height: 100vh;
-  
-  }
-  
-  h1 {
-    font-size: 30px;
-    font-weight: 700;
-  }
-  
-  h2 {
-    font-size: 24px;
-    font-weight: 700;
-  }
-  
-  h3 {
-    font-size: 18px;
-    font-weight: 700;
-  }
-  
-  a {
-    color: #357b70;
-  }
-  
-  a:visited {
-    /* visited link */
-    color: #05676e;
-  }
-  
-  a:hover {
-    /* No underlining when hovering over a link */
-    text-decoration: none;
-  }
-  
-  a:active {
-    /* selected link */
-    color: #489c79;
-  }
-  
-  button {
-    /* overwrites browser defaults and resets the border */
-    border: none;
-    /* takes the font from the outer container */
-    font-family: inherit;
-    background-color: #357b70;
-    color: white;
-    /*font colour*/
-    text-decoration: none;
-    /*adds spacing*/
-    padding: 10px;
-    border-radius: 3px;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-  
-  }
-  
-  button:hover,
-  button:focus {
-    /*focus is for users who use a keyboard to point the button*/
-    /* lets the mouse appear as a hand when hovering over the button */
-    cursor: pointer;
-    /* reduces the opacity of the button to 80% */
-    opacity: 0.8;
-  }
-  
-  .profile__portrait {
-    /* portrait img will be on left side of page 
-      and text will be on the right side*/
-    float: left;
-    /*Small mobile screens have a maximum width of 320px. 
-    Keep that in mind as you design responsive websites. */
-    width: 250px;
-    height: auto;
-    margin-right: 40px;
-    /*This rounds each edge to 50% of the element’s original 
-    width or height,since original image is a square,it will
-    appear as a circle....as each side has same rounding,only 
-    one value can be passed instead of passing in order:top,
-    right,bottom,left*/
-    border-radius: 50%;
-  
-  }
-  
-  .page-footer {
-    /* the footer will not flow arund the floated 
-    element(porrait),by clearing all floats both right and left!*/
-    clear: both;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    /*enables to use the flexbox layout*/
-    /*used to control direction of flow, with column he flow of the
-     flex items inside it would change to top-to-bottom (as opposed to the default left-to-right)*/
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    /*text-align property can center any inline and inline-block elements. As <img> tags are
-    inline-block elements by default, they, too, can be centered via the text-align property.*/
-    text-align: center;
-  
-  }
-  
-  .profile {
-    max-width: 700px;
-    /*center an element horizontally within its parent container
-    0: Sets the top and bottom margins to 0.
-  auto: Allows the browser to automatically calculate equal left and right margins, 
-  centering the element horizontally.
-  Key Requirements:The element must be a block-level element or a flex item. 
-  The element's width must be explicitly defined. */
-    margin: 0 auto;
-  }
-  
-  /*parent container to be a flexnox container and cover full width of page*/
-  .page-header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    padding: 20px;
-  }
-  
-  /*Give both child items a similar base behavior before adding a special 
-  behavior:- flex: grow shrink basis*/
-  .page-header__item {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 200px;
-            flex: 0 1 200px;
-  }
-  
-  /*navigation to be right-aligned. To target the navigation, use the 
-  pseudo-selector :last-child as it’s the last child of the two flexbox child items
-  only overwriting the property flex-grow as all the other properties (flex-basis and 
-  flex-shrink, which are defined in the property flex) stay the same.*/
-  .page-header__item:last-child {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    text-align: right;
-  }
-  
-  .navigation-list {
-    list-style-type: none;
-    /* get rid of the dots from the unordered list*/
-  }
-  
-  
-  /*align list items in a row (inline-block) and give them some space in-between them.
-  Target the list items by first targeting your navigation-list class, then specifically targeting the li inside of that class*/
-  .navigation-list li {
-    display: inline-block;
-    margin-left: 15px;
-  }
-  
-  .grid {
-    display: -ms-grid;
-    display: grid;
-    /*three columns with a width of 300px,two rows in the height 300px*/
-    /* CSS grid helps out here by setting a default auto value for both properties, meaning that it will automatically create as many
-     rows or columns necessary to create a grid of the designated size. It’s considered good practice to specify only one property, and 
-     this property is usually the columns property*/
-    /*grid-template-columns: 300px 300px 300px;*/
-    /*Fr is a flex unit used to allocate available space to grid items.
-    use 1fr for each value because each grid item should be the same size. If you wanted a column to take up twice the size of the other
-     columns, however, you’d pass on the value 2fr  */
-    -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    /*to add some spacing between the grid items. Rather than using margin, you can use the grid property */
-    grid-gap: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
-    /* Explicit row definition for IE */
-    -ms-grid-rows: auto;
-  }
+body {
+  background-color: #FFFAFA;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  /* Sets the font size to 16px */
+  line-height: 1.6;
+  /* Sets the line-height to 1.6 */
+  color: #2F4F4F;
 
- 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+a {
+  color: #357b70;
+}
+
+a:visited {
+  /* visited link */
+  color: #05676e;
+}
+
+a:hover {
+  /* No underlining when hovering over a link */
+  text-decoration: none;
+}
+
+a:active {
+  /* selected link */
+  color: #489c79;
+}
+
+button {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  background-color: #357b70;
+  color: white;
+  /*font colour*/
+  text-decoration: none;
+  /*adds spacing*/
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+
+}
+
+button:hover,
+button:focus {
+  /*focus is for users who use a keyboard to point the button*/
+  /* lets the mouse appear as a hand when hovering over the button */
+  cursor: pointer;
+  /* reduces the opacity of the button to 80% */
+  opacity: 0.8;
+}
+
+.profile__portrait {
+  /* portrait img will be on left side of page 
+    and text will be on the right side*/
+  float: left;
+  /*Small mobile screens have a maximum width of 320px. 
+  Keep that in mind as you design responsive websites. */
+  width: 250px;
+  height: auto;
+  margin-right: 40px;
+  /*This rounds each edge to 50% of the element’s original 
+  width or height,since original image is a square,it will
+  appear as a circle....as each side has same rounding,only 
+  one value can be passed instead of passing in order:top,
+  right,bottom,left*/
+  border-radius: 50%;
+
+}
+
+.page-footer {
+  /* the footer will not flow arund the floated 
+  element(porrait),by clearing all floats both right and left!*/
+  clear: both;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /*enables to use the flexbox layout*/
+  /*used to control direction of flow, with column he flow of the
+   flex items inside it would change to top-to-bottom (as opposed to the default left-to-right)*/
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /*text-align property can center any inline and inline-block elements. As <img> tags are
+  inline-block elements by default, they, too, can be centered via the text-align property.*/
+  text-align: center;
+
+}
+
+.profile {
+  max-width: 700px;
+  /*center an element horizontally within its parent container
+  0: Sets the top and bottom margins to 0.
+auto: Allows the browser to automatically calculate equal left and right margins, 
+centering the element horizontally.
+Key Requirements:The element must be a block-level element or a flex item. 
+The element's width must be explicitly defined. */
+  margin: 0 auto;
+}
+
+/*parent container to be a flexnox container and cover full width of page*/
+.page-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 20px;
+}
+
+/*Give both child items a similar base behavior before adding a special 
+behavior:- flex: grow shrink basis*/
+.page-header__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 200px;
+          flex: 0 1 200px;
+}
+
+/*navigation to be right-aligned. To target the navigation, use the 
+pseudo-selector :last-child as it’s the last child of the two flexbox child items
+only overwriting the property flex-grow as all the other properties (flex-basis and 
+flex-shrink, which are defined in the property flex) stay the same.*/
+.page-header__item:last-child {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: right;
+}
+
+.navigation-list {
+  list-style-type: none;
+  /* get rid of the dots from the unordered list*/
+}
+
+
+/*align list items in a row (inline-block) and give them some space in-between them.
+Target the list items by first targeting your navigation-list class, then specifically targeting the li inside of that class*/
+.navigation-list li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  /*three columns with a width of 300px,two rows in the height 300px*/
+  /* CSS grid helps out here by setting a default auto value for both properties, meaning that it will automatically create as many
+   rows or columns necessary to create a grid of the designated size. It’s considered good practice to specify only one property, and 
+   this property is usually the columns property*/
+  /*grid-template-columns: 300px 300px 300px;*/
+  /*Fr is a flex unit used to allocate available space to grid items.
+  use 1fr for each value because each grid item should be the same size. If you wanted a column to take up twice the size of the other
+   columns, however, you’d pass on the value 2fr  */
+  -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  /*to add some spacing between the grid items. Rather than using margin, you can use the grid property */
+  grid-gap: 20px;
+
+  /* Explicit row definition for IE */
+  -ms-grid-rows: auto;
+}
+
+
 /* IE-specific rules + Standard 'grid-column' for modern browsers */
 .grid__item:nth-child(1) {
-  -ms-grid-column: 1;
-  grid-column: 1;
+-ms-grid-column: 1;
+grid-column: 1;
 }
 .grid__item:nth-child(2) {
-  -ms-grid-column: 3;
-  grid-column: 2;
+-ms-grid-column: 3;
+grid-column: 2;
 }
 .grid__item:nth-child(3) {
-  -ms-grid-column: 5;
-  grid-column: 3;
+-ms-grid-column: 5;
+grid-column: 3;
 }
 
-  .grid__item {
-    background-color: lightgray;
-    padding: 20px;
-  
+.grid__item {
+  background-color: lightgray;
+  padding: 20px;
+
+}
+
+
+
+/* his overarching media query will house all of the shared properties between your two 
+original media queries. Then, you only need to create additional media queries for the unique properties*/
+@media all and (max-width: 500px) {
+  .grid {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
   }
+
+  .grid__item:nth-child(1),
+  .grid__item:nth-child(2),
+  .grid__item:nth-child(3) {
+      -ms-grid-column: 1;
+      grid-column: 1;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  .profile{
+    /*adjust text position and spacing*/
+
+    padding: 5px;
+    word-spacing: 3px; 
+    text-align: center;
+
+    
+    
+ 
+ }
+
+ .profile__portrait{
+    /*overwrite the apllied float:left effect from above*/
+   float: none;
+
+   /*overwrite the 250px width with a 100% width*/
+   width: 100%;
+ }
+
+
+
+
+}
+
+
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .grid {
+    -ms-grid-columns: 1fr 10px 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
+
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+
+  .grid__item:nth-child(3) {
+    /* IE-specific properties */
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+
+    /* Standard properties for modern browsers */
+    -ms-grid-column-span: 2;
+    grid-column: span 2;
+    grid-row: 2; /* Add this to ensure compatibility */
+}
+
+  h3 {
+    font-size: 22px;
+  }
+}
+
+
+.button {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+  display: inline-block;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  /* styles the button */
+  background-color: #357b70;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  /* width of the border, type, color */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  /*Always add the transition property to the default state of an element.
+   The other states will then “check” for the default state and find the transition automatically.
+   to make the code shorter, transition properties can be added in one line in the order:
+   transition: [transition-property] [transition-duration] [transition-timing-function] [transition-delay];
+   transition-property and transition-duration are both required to make the transition visible, the other two have default values that are 
+   applied if nothing else is specified. For transition-timing-function, this defaults to ease, and for transition-delay, this defaults to 0 seconds. */
+  /*transition-duration: 0.2s;
+  transition-property: opacity;*/
+  -webkit-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+
+.button:hover,
+.button:focus {
+  /* lets the mouse appear as a hand when hovering over the button */
+  cursor: pointer;
+  /* reduces the opacity of the button to 80% */
+  opacity: 0.8;
+}
+
+.about_info{
+    
+  text-align: center;
+
+}
+
+.about_pic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  /* Centers horizontally */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  /* Centers vertically */
   
+ 
+}
+
+
+.about_pic img{
+  max-width:100% ;
+}
+
+.about_details {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 20px 2fr;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px;
+  padding: 50px;
   
-  
-  /* his overarching media query will house all of the shared properties between your two 
-  original media queries. Then, you only need to create additional media queries for the unique properties*/
-  @media all and (max-width: 500px) {
-    .grid {
+}
+
+
+@media all and (max-width: 500px) {
+  .about_pic{
+      display: block;
+  }
+  .about_details {
       -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-      grid-gap: 10px;
-    }
-  
-    .grid__item:nth-child(1),
-    .grid__item:nth-child(2),
-    .grid__item:nth-child(3) {
-        -ms-grid-column: 1;
-        grid-column: 1;
-    }
-  
-    h3 {
-      font-size: 22px;
-    }
-  
-    .profile{
-      /*adjust text position and spacing*/
-  
-      padding: 5px;
-      word-spacing: 3px; 
-      text-align: center;
-  
       
-      
-   
-   }
-  
-   .profile__portrait{
-      /*overwrite the apllied float:left effect from above*/
-     float: none;
-  
-     /*overwrite the 250px width with a 100% width*/
-     width: 100%;
-   }
-  
-  
-  
-  
-  }
-  
-  
-  @media all and (min-width: 500px) and (max-width: 750px) {
-    .grid {
-      -ms-grid-columns: 1fr 10px 1fr;
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  @media all and (max-width: 750px) {
-    .grid {
-      grid-gap: 10px;
-    }
-  
-    .grid__item:last-child {
       grid-column: auto / auto;
       grid-row: auto / auto;
-    }
-
-    .grid__item:nth-child(3) {
-      /* IE-specific properties */
-      -ms-grid-column: 1;
-      -ms-grid-row: 2;
-  
-      /* Standard properties for modern browsers */
-      grid-column: span 2;
-      grid-row: 2; /* Add this to ensure compatibility */
-  }
-  
-    h3 {
-      font-size: 22px;
-    }
-  }
-  
-  .button {
-    /* overwrites browser defaults and resets the border */
-    border: none;
-    display: inline-block;
-    /* takes the font from the outer container */
-    font-family: inherit;
-    /* styles the button */
-    background-color: #357b70;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 3px;
-    /* width of the border, type, color */
-    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-    /*Always add the transition property to the default state of an element.
-     The other states will then “check” for the default state and find the transition automatically.
-     to make the code shorter, transition properties can be added in one line in the order:
-     transition: [transition-property] [transition-duration] [transition-timing-function] [transition-delay];
-     transition-property and transition-duration are both required to make the transition visible, the other two have default values that are 
-     applied if nothing else is specified. For transition-timing-function, this defaults to ease, and for transition-delay, this defaults to 0 seconds. */
-    /*transition-duration: 0.2s;
-    transition-property: opacity;*/
-    -webkit-transition: opacity 0.2s;
-    -o-transition: opacity 0.2s;
-    transition: opacity 0.2s;
-  }
-  
-  
-  .button:hover,
-  .button:focus {
-    /* lets the mouse appear as a hand when hovering over the button */
-    cursor: pointer;
-    /* reduces the opacity of the button to 80% */
-    opacity: 0.8;
-  }
-  
-  .about_info{
-      
-    text-align: center;
-  
-  }
-  
-  .about_pic {
-    /* Standard CSS for modern browsers */
-    grid-column: 1;
-    grid-row: 1;
-    /* Vendor prefixes for compatibility with Edge and IE 10 */
-    -ms-grid-column: 1;
-    -ms-grid-row: 1;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    /* Centers horizontally */
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-
-    
-   
-  }
-
-  .about_pic img{
-    
-    max-width: 100%;
-    height: auto;
- 
-  }
-  
-  
-  .about_details {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 20px 2fr;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 50px;
-    padding: 50px;
-    
-   
-  }
-  
-  
-  @media all and (max-width: 500px) {
-    .about_pic{
-        display: block;
-    }
-    .about_details {
-        -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-        
-        grid-column: auto / auto;
-        grid-row: auto / auto;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-    }
-  }
-  
-  
-  
-  @media all and (min-width: 500px) and (max-width: 750px) {
-    .about_pic{
-        display: block;
-    }
-    
-    .about_details{
-        -ms-grid-columns: 1fr 10px 1fr;
-        grid-template-columns: 1fr 1fr;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-    }
-  }
-  
-  @media all and (max-width: 750px) {
-  
-    .about_pic{
-        display: block;
-    }
-    .about_details {
-        
-        grid-column: auto / auto;
-        grid-row: auto / auto;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-    }
-  
-  
-  
-   
-  }
-  
-  
-  
-  @-webkit-keyframes color-change {
-    0% {
-      fill: #edc655;
-    }
-  
-    50% {
-      fill: #fcffad;
-    }
-  
-    100% {
-      fill: #f76414;
-    }
-  }
-  
-  
-  
-  @keyframes color-change {
-    0% {
-      fill: #edc655;
-    }
-  
-    50% {
-      fill: #fcffad;
-    }
-  
-    100% {
-      fill: #f76414;
-    }
-  }
-  
-  
-  .sun {
-    -webkit-animation-duration: 4s;
-            animation-duration: 4s;
-    -webkit-animation-name: color-change;
-            animation-name: color-change;
-    -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
-            animation-direction: alternate;
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-  }
-  
-  @-webkit-keyframes cloud-move {
-    from {
-      -webkit-transform: translate(0, 50px);
-              transform: translate(0, 50px);
-    }
-  
-    to {
-      -webkit-transform: translate(200px, 50px);
-              transform: translate(200px, 50px);
-    }
-  }
-  
-  @keyframes cloud-move {
-    from {
-      -webkit-transform: translate(0, 50px);
-              transform: translate(0, 50px);
-    }
-  
-    to {
-      -webkit-transform: translate(200px, 50px);
-              transform: translate(200px, 50px);
-    }
-  }
-  
-  /* .cloud1 {
-    animation: 30s cloud-move infinite alternate linear;
-  }*/
-  .cloud1 {
-    -webkit-animation-duration: 30s;
-            animation-duration: 30s;
-    -webkit-animation-name: cloud-move;
-            animation-name: cloud-move;
-    -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
-            animation-direction: alternate;
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-  }
-  
-  @-webkit-keyframes cloud-move-reverse {
-    from {
-      -webkit-transform: translate(446px, 48px);
-              transform: translate(446px, 48px);
-    }
-  
-    to {
-      -webkit-transform: translate(100px, 48px);
-              transform: translate(100px, 48px);
-    }
-  }
-  
-  @keyframes cloud-move-reverse {
-    from {
-      -webkit-transform: translate(446px, 48px);
-              transform: translate(446px, 48px);
-    }
-  
-    to {
-      -webkit-transform: translate(100px, 48px);
-              transform: translate(100px, 48px);
-    }
-  }
-  
-  .cloud2 {
-    -webkit-animation: 34s cloud-move-reverse infinite alternate linear;
-            animation: 34s cloud-move-reverse infinite alternate linear;
-  }
-  
-  #contact-form {
-    padding: 10px;
-    background-color: #ddd;
-    margin-top: 20px;
-  }
-  
-  #contact-form>* {
-    display: block;
-    width: 100%;
-    padding: 10px;
-  
-  }
-  
-  #contact-form textarea {
-    margin-bottom: 20px;
-  }
-  
-  
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    /* this will center the element in the center because it has a "block" display by default */
-    padding: 10px;
-  
-    /* allow the main to grow*/
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    /* allow the main to stretch...it won't by default because of it becoming a flex item...so, this 100% width will stretch it, and it will be limited to 900px at max because of the max-width: 900px*/
-    width: 100%;
-  }
-  
-  table {
-    -ms-grid-column: 2;
-    -ms-grid-row: 1;
-    /* Standard CSS for modern browsers */
-    grid-column: 2;
-    grid-row: 1;
-    flex: 2;
-    width: 100%;
-    max-width: 50%;
-
-    border-collapse: collapse;
-    /* Removes extra space between borders */
-    margin: 20px 0;
-    /* Adds space around table */
-    font-size: 18px;
-    /*text-align: left;*/
-
-  }
-  
-  caption {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    /* Space between caption and table */
-    text-align: center;
-  }
-  
-  th,
-  td {
-    padding: 12px 15px;
-    /* Space inside cells */
-    border: 1px solid #ddd;
-    /* Light border for structure */
-  }
-  
-  thead {
-    background-color: darkcyan;
-    /* Dark cyan */
-    color: #fff;
-    /* White text */
-  }
-  
-  tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-    /* Light gray for alternating rows */
-  }
-  
-  tbody tr:hover {
-    background-color: #d3e3fc;
-    /* Light blue on hover */
-  }
-  
-  th {
-    text-transform: uppercase;
-  }
-  
-  td {
-    text-align: center;
-    /* Centers text in table */
-  }
-
-
-  /* Media Queries */
-@media all and (max-width: 750px) {
-  .about_details {
-      -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  }
-
-  .about_pic, table {
-      max-width: 100%;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
   }
 }
+
+
+
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .about_pic{
+      display: block;
+  }
   
+  .about_details{
+      -ms-grid-columns: 1fr 10px 1fr;
+      grid-template-columns: 1fr 1fr;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+  }
+}
+
+@media all and (max-width: 750px) {
+
+  .about_pic{
+      display: block;
+  }
+  .about_details {
+      
+      grid-column: auto / auto;
+      grid-row: auto / auto;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+  }
+
+
+
+ 
+}
+
+
+
+@-webkit-keyframes color-change {
+  0% {
+    fill: #edc655;
+  }
+
+  50% {
+    fill: #fcffad;
+  }
+
+  100% {
+    fill: #f76414;
+  }
+}
+
+
+
+@keyframes color-change {
+  0% {
+    fill: #edc655;
+  }
+
+  50% {
+    fill: #fcffad;
+  }
+
+  100% {
+    fill: #f76414;
+  }
+}
+
+
+.sun {
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-name: color-change;
+          animation-name: color-change;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes cloud-move {
+  from {
+    -webkit-transform: translate(0, 50px);
+            transform: translate(0, 50px);
+  }
+
+  to {
+    -webkit-transform: translate(200px, 50px);
+            transform: translate(200px, 50px);
+  }
+}
+
+@keyframes cloud-move {
+  from {
+    -webkit-transform: translate(0, 50px);
+            transform: translate(0, 50px);
+  }
+
+  to {
+    -webkit-transform: translate(200px, 50px);
+            transform: translate(200px, 50px);
+  }
+}
+
+/* .cloud1 {
+  animation: 30s cloud-move infinite alternate linear;
+}*/
+.cloud1 {
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-name: cloud-move;
+          animation-name: cloud-move;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes cloud-move-reverse {
+  from {
+    -webkit-transform: translate(446px, 48px);
+            transform: translate(446px, 48px);
+  }
+
+  to {
+    -webkit-transform: translate(100px, 48px);
+            transform: translate(100px, 48px);
+  }
+}
+
+@keyframes cloud-move-reverse {
+  from {
+    -webkit-transform: translate(446px, 48px);
+            transform: translate(446px, 48px);
+  }
+
+  to {
+    -webkit-transform: translate(100px, 48px);
+            transform: translate(100px, 48px);
+  }
+}
+
+.cloud2 {
+  -webkit-animation: 34s cloud-move-reverse infinite alternate linear;
+          animation: 34s cloud-move-reverse infinite alternate linear;
+}
+
+#contact-form {
+  padding: 10px;
+  background-color: #ddd;
+  margin-top: 20px;
+}
+
+#contact-form>* {
+  display: block;
+  width: 100%;
+  padding: 10px;
+
+}
+
+#contact-form textarea {
+  margin-bottom: 20px;
+}
+
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  /* this will center the element in the center because it has a "block" display by default */
+  padding: 10px;
+
+  /* allow the main to grow*/
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  /* allow the main to stretch...it won't by default because of it becoming a flex item...so, this 100% width will stretch it, and it will be limited to 900px at max because of the max-width: 900px*/
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  /* Full width */
+  border-collapse: collapse;
+  /* Removes extra space between borders */
+  margin: 20px 0;
+  /* Adds space around table */
+  font-size: 18px;
+  text-align: left;
+}
+
+caption {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  /* Space between caption and table */
+  text-align: center;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  /* Space inside cells */
+  border: 1px solid #ddd;
+  /* Light border for structure */
+}
+
+thead {
+  background-color: darkcyan;
+  /* Dark cyan */
+  color: #fff;
+  /* White text */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+  /* Light gray for alternating rows */
+}
+
+tbody tr:hover {
+  background-color: #d3e3fc;
+  /* Light blue on hover */
+}
+
+th {
+  text-transform: uppercase;
+}
+
+td {
+  text-align: center;
+  /* Centers text in table */
+}
