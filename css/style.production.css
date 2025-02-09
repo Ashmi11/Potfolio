@@ -215,8 +215,26 @@ the width of the item itself changing to accommodate the padding and border*/
     grid-template-columns: 1fr 1fr 1fr;
     /*to add some spacing between the grid items. Rather than using margin, you can use the grid property */
     grid-gap: 20px;
+
+    /* Explicit row definition for IE */
+    -ms-grid-rows: auto;
   }
-  
+
+ 
+/* IE-specific rules + Standard 'grid-column' for modern browsers */
+.grid__item:nth-child(1) {
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+.grid__item:nth-child(2) {
+  -ms-grid-column: 3;
+  grid-column: 2;
+}
+.grid__item:nth-child(3) {
+  -ms-grid-column: 5;
+  grid-column: 3;
+}
+
   .grid__item {
     background-color: lightgray;
     padding: 20px;
@@ -234,9 +252,11 @@ the width of the item itself changing to accommodate the padding and border*/
       grid-gap: 10px;
     }
   
-    .grid__item:last-child {
-      grid-column: auto / auto;
-      grid-row: auto / auto;
+    .grid__item:nth-child(1),
+    .grid__item:nth-child(2),
+    .grid__item:nth-child(3) {
+        -ms-grid-column: 1;
+        grid-column: 1;
     }
   
     h3 {
@@ -285,6 +305,16 @@ the width of the item itself changing to accommodate the padding and border*/
       grid-column: auto / auto;
       grid-row: auto / auto;
     }
+
+    .grid__item:nth-child(3) {
+      /* IE-specific properties */
+      -ms-grid-column: 1;
+      -ms-grid-row: 2;
+  
+      /* Standard properties for modern browsers */
+      grid-column: span 2;
+      grid-row: 2; /* Add this to ensure compatibility */
+  }
   
     h3 {
       font-size: 22px;
