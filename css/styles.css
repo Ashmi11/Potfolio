@@ -191,6 +191,7 @@ Target the list items by first targeting your navigation-list class, then specif
 }
 
 .grid {
+  display: -ms-grid;
   display: grid;
   /*three columns with a width of 300px,two rows in the height 300px*/
   /* CSS grid helps out here by setting a default auto value for both properties, meaning that it will automatically create as many
@@ -200,13 +201,32 @@ Target the list items by first targeting your navigation-list class, then specif
   /*Fr is a flex unit used to allocate available space to grid items.
   use 1fr for each value because each grid item should be the same size. If you wanted a column to take up twice the size of the other
    columns, however, you’d pass on the value 2fr  */
+  -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   /*to add some spacing between the grid items. Rather than using margin, you can use the grid property */
   grid-gap: 20px;
+
+  /* Explicit row definition for IE */
+  -ms-grid-rows: auto;
+}
+
+
+/* IE-specific rules + Standard 'grid-column' for modern browsers */
+.grid__item:nth-child(1) {
+-ms-grid-column: 1;
+grid-column: 1;
+}
+.grid__item:nth-child(2) {
+-ms-grid-column: 3;
+grid-column: 2;
+}
+.grid__item:nth-child(3) {
+-ms-grid-column: 5;
+grid-column: 3;
 }
 
 .grid__item {
-  background-color: var(--lightgray);
+  background-color: lightgray;
   padding: 20px;
 
 }
@@ -217,13 +237,16 @@ Target the list items by first targeting your navigation-list class, then specif
 original media queries. Then, you only need to create additional media queries for the unique properties*/
 @media all and (max-width: 500px) {
   .grid {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     grid-gap: 10px;
   }
 
-  .grid__item:last-child {
-    grid-column: auto / auto;
-    grid-row: auto / auto;
+  .grid__item:nth-child(1),
+  .grid__item:nth-child(2),
+  .grid__item:nth-child(3) {
+      -ms-grid-column: 1;
+      grid-column: 1;
   }
 
   h3 {
@@ -258,6 +281,7 @@ original media queries. Then, you only need to create additional media queries f
 
 @media all and (min-width: 500px) and (max-width: 750px) {
   .grid {
+    -ms-grid-columns: 1fr 10px 1fr;
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -272,10 +296,21 @@ original media queries. Then, you only need to create additional media queries f
     grid-row: auto / auto;
   }
 
+  .grid__item:nth-child(3) {
+    /* IE-specific properties */
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+
+    /* Standard properties for modern browsers */
+    grid-column: span 2;
+    grid-row: 2; /* Add this to ensure compatibility */
+}
+
   h3 {
     font-size: 22px;
   }
 }
+
 
 .button {
   /* overwrites browser defaults and resets the border */

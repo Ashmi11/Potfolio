@@ -364,6 +364,12 @@ the width of the item itself changing to accommodate the padding and border*/
   }
   
   .about_pic {
+    /* Standard CSS for modern browsers */
+    grid-column: 1;
+    grid-row: 1;
+    /* Vendor prefixes for compatibility with Edge and IE 10 */
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -374,21 +380,16 @@ the width of the item itself changing to accommodate the padding and border*/
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    /* Centers vertically */
-    align-items: center;
-    width: 100%;
-    /* Ensures it takes full width */
+    max-width: 50%; /* Ensures proper width */
     
    
   }
 
   .about_pic img{
-    float: left;
+    
     max-width:100% ;
     height: auto;
-    display: block;
-    margin: auto;
-    /* Fix for IE alignment */
+ 
   }
   
   
@@ -399,6 +400,7 @@ the width of the item itself changing to accommodate the padding and border*/
     grid-template-columns: 1fr 2fr;
     grid-gap: 20px;
     padding: 50px;
+    align-items: center;
    
   }
   
@@ -602,6 +604,11 @@ the width of the item itself changing to accommodate the padding and border*/
   }
   
   table {
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+    /* Standard CSS for modern browsers */
+    grid-column: 2;
+    grid-row: 1;
     float: right;
     width: 100%;
     /* Full width */
@@ -658,4 +665,17 @@ the width of the item itself changing to accommodate the padding and border*/
     text-align: center;
     /* Centers text in table */
   }
+
+
+  /* Media Queries */
+@media all and (max-width: 750px) {
+  .about_details {
+      -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  }
+
+  .about_pic, table {
+      max-width: 100%;
+  }
+}
   
