@@ -3,6 +3,70 @@
 <!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 381.895 269.788" style="enable-background:new 0 0 381.895 269.788;" xml:space="preserve">
+
+	 <style>
+	@keyframes color-change {
+		0% {
+			fill: #edc655;
+		}
+	
+		50% {
+			fill: #fcffad;
+		}
+	
+		100% {
+			fill: #f76414;
+		}
+	}
+
+
+	.sun {
+		animation-duration: 4s;
+		animation-name: color-change;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-timing-function: linear;
+	}
+
+	@keyframes cloud-move {
+		from {
+			transform: translate(0, 50px);
+		}
+
+		to {
+			transform: translate(200px, 50px);
+		}
+	}
+
+	/* .cloud1 {
+		animation: 30s cloud-move infinite alternate linear;
+	}*/
+
+	.cloud1 {
+		animation-duration: 30s;
+		animation-name: cloud-move;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-timing-function: linear;
+	}
+
+	@keyframes cloud-move-reverse {
+		from {
+			transform: translate(446px, 48px);
+		}
+
+		to {
+			transform: translate(100px, 48px);
+		}
+	}
+
+	.cloud2 {
+		animation: 34s cloud-move-reverse infinite alternate linear;
+	}
+</style>
+
+
+
 <g>
 	<g>
 		<defs>

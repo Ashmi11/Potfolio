@@ -348,6 +348,10 @@ the width of the item itself changing to accommodate the padding and border*/
     
    
   }
+
+  .about_pic img{
+    max-width:100% ;
+  }
   
   
   .about_details {

@@ -334,6 +334,10 @@ original media queries. Then, you only need to create additional media queries f
 }
 
 
+.about_pic img{
+  max-width:100% ;
+}
+
 .about_details {
   display: grid;
   grid-template-columns: 1fr 2fr;
